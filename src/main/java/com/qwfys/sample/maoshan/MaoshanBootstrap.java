@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MaoshanApplication {
+public class MaoshanBootstrap {
 
     public static void main(String[] args) {
-        SpringApplication.run(MaoshanApplication.class, args);
+        SpringApplication.run(MaoshanBootstrap.class, args);
     }
 
 }
