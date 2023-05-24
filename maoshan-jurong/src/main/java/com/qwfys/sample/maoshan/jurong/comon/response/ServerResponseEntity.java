@@ -1,11 +1,19 @@
 package com.qwfys.sample.maoshan.jurong.comon.response;
 
 import com.qwfys.sample.maoshan.jurong.comon.enums.ResponseEnum;
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Objects;
 
 @Slf4j
+@Builder
+@Data
+@AllArgsConstructor
+@Schema(description = "统一返回实体")
 public class ServerResponseEntity<T> {
 
     /**
@@ -34,55 +42,6 @@ public class ServerResponseEntity<T> {
     private Long timestamp;
 
     private String sign;
-
-    public String getSign() {
-        return sign;
-    }
-
-    public void setSign(String sign) {
-        this.sign = sign;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
-    public T getData() {
-        return data;
-    }
-
-    public ServerResponseEntity setData(T data) {
-        this.data = data;
-        return this;
-    }
-
-    public String getVersion() {
-        return version;
-    }
-
-    public void setVersion(String version) {
-        this.version = version;
-    }
-
-    public Long getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(Long timestamp) {
-        this.timestamp = timestamp;
-    }
 
     public boolean isSuccess() {
         return Objects.equals(ResponseEnum.OK.value(), this.code);

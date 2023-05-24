@@ -1,15 +1,13 @@
 package com.qwfys.sample.maoshan.common.vo;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.qwfys.sample.maoshan.jurong.vo.DeptVO;
-import com.qwfys.sample.maoshan.jurong.vo.RoleVO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
 import java.util.List;
 
-@Schema(description = "部门")
+@Schema(description = "账号详情")
 @Data
 @Accessors(chain = true)
 public class AccountDetailVO {
