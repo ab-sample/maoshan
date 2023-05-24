@@ -1,9 +1,12 @@
 package com.qwfys.sample.maoshan.jurong.comon.result;
 
+import lombok.ToString;
+
 /**
  * @author liuwenke
  * @since 0.0.1
  */
+@ToString
 public enum MaoResultCode {
 
     OK("00000", "ok"),
@@ -50,10 +53,4 @@ public enum MaoResultCode {
         this.code = code;
         this.msg = msg;
     }
-
-    @Override
-    public String toString() {
-        return "ResponseEnum{" + "code='" + code + '\'' + ", msg='" + msg + '\'' + "} " + super.toString();
-    }
-
 }
