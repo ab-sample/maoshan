@@ -1,0 +1,29 @@
+{
+  "isSuccess": true,
+  "resultCode": "00000",
+  "resultMessage": "操作成功！",
+  "data": {
+    "userId": "1639178930477944839",
+    "userName": "welcome",
+    "fullName": "welcome",
+    "telephone": "13800000000",
+    "dept": null,
+    "roles": [
+      {
+        "id": "11",
+        "code": "ADMIN",
+        "name": "管理员"
+      },
+      {
+        "id": "12",
+        "code": "BUYER",
+        "name": "买家"
+      },
+      {
+        "id": "13",
+        "code": "SELLER",
+        "name": "商家"
+      }
+    ]
+  }
+}
