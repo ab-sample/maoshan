@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
 @NoArgsConstructor
-public enum ResultCode implements IResultCode {
+public enum HuaResultCode implements IResultCode {
     /**
      * SpringMVC默认级别的异常封装
      */

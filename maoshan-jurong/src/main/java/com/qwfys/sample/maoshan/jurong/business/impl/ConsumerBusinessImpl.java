@@ -2,7 +2,7 @@ package com.qwfys.sample.maoshan.jurong.business.impl;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.qwfys.sample.maoshan.common.result.Result;
+import com.qwfys.sample.maoshan.common.result.HuaResult;
 import com.qwfys.sample.maoshan.common.vo.AccountDetailVO;
 import com.qwfys.sample.maoshan.jurong.business.spec.ConsumerBusiness;
 import com.qwfys.sample.maoshan.jurong.request.AccountDetailRequest;
@@ -43,19 +43,19 @@ public class ConsumerBusinessImpl implements ConsumerBusiness {
 
         String apiUrl = "http://127.0.0.1:19000/provider/account/detail";
         HttpMethod httpMethod = HttpMethod.POST;
-        ResponseEntity<Result<AccountDetailVO>> responseEntity = restTemplate.exchange(
+        ResponseEntity<HuaResult<AccountDetailVO>> responseEntity = restTemplate.exchange(
                 apiUrl,
                 httpMethod,
                 httpEntity,
-                new ParameterizedTypeReference<Result<AccountDetailVO>>() {
+                new ParameterizedTypeReference<HuaResult<AccountDetailVO>>() {
                 }
         );
 
         Assert.notNull(responseEntity, "responseEntity为空");
-        Result<AccountDetailVO> result = responseEntity.getBody();
-        Assert.notNull(result, "result不能为空");
-        Assert.isTrue(result.getIsSuccess(), "code:" + result.getResultCode() + " message:" + result.getResultMessage());
-        AccountDetailVO accountDetail = result.getData();
+        HuaResult<AccountDetailVO> huaResult = responseEntity.getBody();
+        Assert.notNull(huaResult, "result不能为空");
+        Assert.isTrue(huaResult.getIsSuccess(), "code:" + huaResult.getResultCode() + " message:" + huaResult.getResultMessage());
+        AccountDetailVO accountDetail = huaResult.getData();
         return accountDetail;
     }
 }

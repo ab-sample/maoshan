@@ -25,17 +25,17 @@ public class ConsumerController {
     @PostMapping("/consumer/account/detail")
     @Operation(summary = "获取消费方账号详情")
     public MaoResult<AccountDetailVO> viewAccountDetail(@RequestHeader("Authorization") String token, @RequestBody AccountDetailRequest param) {
-        MaoResult<AccountDetailVO> serverResponse = null;
+        MaoResult<AccountDetailVO> result = null;
         try {
             AccountDetailVO detailVO = consumerBusiness.viewAccountDetail(token, param);
-            serverResponse = MaoResult.success(detailVO);
+            result = MaoResult.success(detailVO);
 
         } catch (Exception e) {
             log.error(e.getMessage(), e);
-            serverResponse = MaoResult.fail(MaoResultCode.EXCEPTION);
+            result = MaoResult.fail(MaoResultCode.EXCEPTION);
         }
 
-        log.info("response: {}", serverResponse);
-        return serverResponse;
+        log.info("response: {}", result);
+        return result;
     }
 }

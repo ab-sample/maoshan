@@ -1,7 +1,7 @@
 package com.qwfys.sample.maoshan.huayang.controler;
 
 import com.qwfys.sample.maoshan.common.dto.AccountDetailDTO;
-import com.qwfys.sample.maoshan.common.result.Result;
+import com.qwfys.sample.maoshan.common.result.HuaResult;
 import com.qwfys.sample.maoshan.common.vo.AccountDetailVO;
 import com.qwfys.sample.maoshan.huayang.business.spec.AccountBusiness;
 import io.swagger.v3.oas.annotations.Operation;
@@ -26,13 +26,13 @@ public class ProviderController {
     @ResponseBody
     @PostMapping("/provider/account/detail")
     @Operation(summary = "获取服务方账号详情")
-    public Result<AccountDetailVO> findAccountDetail(@RequestHeader("Authorization") String token, @RequestBody AccountDetailDTO dto) {
+    public HuaResult<AccountDetailVO> findAccountDetail(@RequestHeader("Authorization") String token, @RequestBody AccountDetailDTO dto) {
         Assert.notNull(token, "token不能为空");
         Assert.notNull(dto.getUserId(), "userID不能为空");
 
         AccountDetailVO detailVO = accountBusiness.findAccountDetail();
-        Result<AccountDetailVO> result = Result.data(detailVO);
-        log.info("response: {}", result);
-        return result;
+        HuaResult<AccountDetailVO> huaResult = HuaResult.data(detailVO);
+        log.info("response: {}", huaResult);
+        return huaResult;
     }
 }
