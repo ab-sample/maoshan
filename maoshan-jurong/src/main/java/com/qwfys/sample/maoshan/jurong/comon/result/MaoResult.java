@@ -30,28 +30,14 @@ public class MaoResult<T> {
      */
     private T data;
 
-    /**
-     * 版本
-     */
-    private String version;
-
-    /**
-     * 时间
-     */
-    private Long timestamp;
-
-    private String sign;
+    public MaoResult() {
+    }
 
     public boolean isSuccess() {
         return Objects.equals(MaoResultCode.OK.value(), this.code);
     }
     public boolean isFail() {
         return !Objects.equals(MaoResultCode.OK.value(), this.code);
-    }
-
-    public MaoResult() {
-        // 版本号
-        this.version = "mall4j.v230327";
     }
 
     public static <T> MaoResult<T> success(T data) {
