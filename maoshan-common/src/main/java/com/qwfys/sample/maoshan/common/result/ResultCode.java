@@ -36,6 +36,7 @@ public enum ResultCode implements IResultCode {
      * 不可预知系统异常
      */
     SERVER_ERROR(false, "99999", "抱歉，系统繁忙，请稍后重试！"),
+
     /**
      * 基本的返回
      */
@@ -47,6 +48,7 @@ public enum ResultCode implements IResultCode {
     NO_PERMISSION_FILE(false, "A0005", "没有文件权限"),
     LOGIN_FAIL(false, "A0006", "用户不存在或被禁用"),
     DATA_EXCEPTION(false, "A0007", "数据异常"),
+
     /**
      * 系统可预知异常
      */

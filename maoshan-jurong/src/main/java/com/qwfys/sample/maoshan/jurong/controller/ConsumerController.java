@@ -2,8 +2,8 @@ package com.qwfys.sample.maoshan.jurong.controller;
 
 import com.qwfys.sample.maoshan.common.vo.AccountDetailVO;
 import com.qwfys.sample.maoshan.jurong.business.spec.ConsumerBusiness;
-import com.qwfys.sample.maoshan.jurong.comon.enums.ResponseEnum;
-import com.qwfys.sample.maoshan.jurong.comon.response.ServerResponseEntity;
+import com.qwfys.sample.maoshan.jurong.comon.result.MaoResultCode;
+import com.qwfys.sample.maoshan.jurong.comon.result.MaoResult;
 import com.qwfys.sample.maoshan.jurong.request.AccountDetailRequest;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -24,15 +24,15 @@ public class ConsumerController {
 
     @PostMapping("/consumer/account/detail")
     @Operation(summary = "获取消费方账号详情")
-    public ServerResponseEntity<AccountDetailVO> viewAccountDetail(@RequestHeader("Authorization") String token, @RequestBody AccountDetailRequest param) {
-        ServerResponseEntity<AccountDetailVO> serverResponse = null;
+    public MaoResult<AccountDetailVO> viewAccountDetail(@RequestHeader("Authorization") String token, @RequestBody AccountDetailRequest param) {
+        MaoResult<AccountDetailVO> serverResponse = null;
         try {
             AccountDetailVO detailVO = consumerBusiness.viewAccountDetail(token, param);
-            serverResponse = ServerResponseEntity.success(detailVO);
+            serverResponse = MaoResult.success(detailVO);
 
         } catch (Exception e) {
             log.error(e.getMessage(), e);
-            serverResponse = ServerResponseEntity.fail(ResponseEnum.EXCEPTION);
+            serverResponse = MaoResult.fail(MaoResultCode.EXCEPTION);
         }
 
         log.info("response: {}", serverResponse);

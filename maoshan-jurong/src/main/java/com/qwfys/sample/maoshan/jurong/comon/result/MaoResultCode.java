@@ -1,10 +1,10 @@
-package com.qwfys.sample.maoshan.jurong.comon.enums;
+package com.qwfys.sample.maoshan.jurong.comon.result;
 
 /**
  * @author liuwenke
  * @since 0.0.1
  */
-public enum ResponseEnum {
+public enum MaoResultCode {
 
     OK("00000", "ok"),
 
@@ -46,7 +46,7 @@ public enum ResponseEnum {
         return msg;
     }
 
-    ResponseEnum(String code, String msg) {
+    MaoResultCode(String code, String msg) {
         this.code = code;
         this.msg = msg;
     }

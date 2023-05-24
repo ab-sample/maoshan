@@ -6,7 +6,7 @@ package com.qwfys.sample.maoshan.common.result;
  */
 public interface IResultCode {
     /**
-     * 是否成功(预留字段，后期做微服务之间调用 可用此字段判断服务调用是否)
+     * 是否成功
      *
      * @return
      */

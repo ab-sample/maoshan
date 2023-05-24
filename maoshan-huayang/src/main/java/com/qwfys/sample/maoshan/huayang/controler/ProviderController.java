@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
  * @author liuwenke
  * @since 0.0.1
  */
-//@Api(tags = "外部调用接口")
 @Slf4j
 @RestController
 @Tag(name = "服务方管理")

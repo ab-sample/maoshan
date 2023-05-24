@@ -8,5 +8,4 @@ import com.qwfys.sample.maoshan.common.vo.AccountDetailVO;
  */
 public interface AccountBusiness {
     AccountDetailVO findAccountDetail();
-
 }
