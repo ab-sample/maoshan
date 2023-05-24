@@ -22,5 +22,6 @@ public class JurongConfig {
         //factory.setConnectTimeout(CONNECT_TIMEOUT);
         //factory.setReadTimeout(SOCKET_TIMEOUT);
         return new RestTemplate(factory);
+        //return new RestTemplate();
     }
 }

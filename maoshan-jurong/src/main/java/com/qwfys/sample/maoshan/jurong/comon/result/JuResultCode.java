@@ -7,7 +7,7 @@ import lombok.ToString;
  * @since 0.0.1
  */
 @ToString
-public enum MaoResultCode {
+public enum JuResultCode {
 
     OK("00000", "ok"),
 
@@ -49,7 +49,7 @@ public enum MaoResultCode {
         return msg;
     }
 
-    MaoResultCode(String code, String msg) {
+    JuResultCode(String code, String msg) {
         this.code = code;
         this.msg = msg;
     }

@@ -40,7 +40,6 @@ public class AccountBusinessImpl implements AccountBusiness {
                         .setName("商家")
         );
 
-
         AccountDetailVO detailVO = new AccountDetailVO()
                 .setUserId(1639178930477944839L)
                 .setUserName("welcome")
