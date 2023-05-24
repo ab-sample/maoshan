@@ -11,8 +11,6 @@ import lombok.Data;
  * @author liuwenke
  * @since 0.0.1
  */
-//@Data
-//@Accessors(chain = true)
 @Builder
 @Data
 @AllArgsConstructor
@@ -50,11 +48,6 @@ public class Result<T> {
         this.resultMessage = resultMessage;
     }
 
-    /**
-     * 下面是重写构造方法
-     *
-     * @param resultCode
-     */
     private Result(IResultCode resultCode) {
         this(resultCode.isSuccess(), resultCode.resultCode(), resultCode.resultMessage(), null);
     }
@@ -71,28 +64,9 @@ public class Result<T> {
         this(resultCode.isSuccess(), resultCode.resultCode(), message, data);
     }
 
-    /**
-     * 返回带有数据的情况，带有数据默认成功
-     *
-     * @param data
-     * @param <T>
-     * @return
-     */
     public static <T> Result<T> data(T data) {
         return data(ResultCode.SUCCESS.resultMessage, data);
     }
-
-    ///**
-    // * 分页数据返回
-    // *
-    // * @param
-    // * @param <T>
-    // * @return
-    // */
-    //public static <T> Result<PageVO<T>> data(Page<T> page) {
-    //    PageVO<T> pageVO = new PageVO(page);
-    //    return data(ResultCode.SUCCESS.resultMessage, pageVO);
-    //}
 
     public static <T> Result<T> data(String message, T data) {
         return data(ResultCode.SUCCESS.isSuccess(), ResultCode.SUCCESS.resultCode(), message, data);
@@ -102,13 +76,6 @@ public class Result<T> {
         return new Result<>(isSuccess, code, null == data ? ResultCode.SUCCESS.resultCode : message, data);
     }
 
-    /**
-     * 处理成功返回数据情况
-     *
-     * @param
-     * @param <T>
-     * @return
-     */
     public static <T> Result<T> success() {
         return new Result<>(ResultCode.SUCCESS);
     }
@@ -125,13 +92,6 @@ public class Result<T> {
         return new Result<>(resultCode, message);
     }
 
-
-    /**
-     * 处理失败的情况
-     *
-     * @param <T>
-     * @return
-     */
     public static <T> Result<T> fail() {
         return new Result<>(ResultCode.FAILURE);
     }
@@ -152,14 +112,7 @@ public class Result<T> {
         return flag ? success(ResultCode.SUCCESS.resultMessage()) : fail(ResultCode.FAILURE.resultMessage());
     }
 
-    /**
-     *  flag大于0 则返回成功 小于0 则返回失败
-     * @param flag
-     * @return
-     * @param <T>
-     */
     public static <T> Result<T> judge(int flag) {
         return flag > 0 ? success(ResultCode.SUCCESS.resultMessage()) : fail(ResultCode.FAILURE.resultMessage());
     }
-
 }
