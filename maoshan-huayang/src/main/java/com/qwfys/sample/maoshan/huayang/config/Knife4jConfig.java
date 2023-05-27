@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
  * @since 0.0.1
  */
 @Configuration
-public class knife4jConfig {
+public class Knife4jConfig {
 
     @Bean
     public GroupedOpenApi baseRestApi() {
